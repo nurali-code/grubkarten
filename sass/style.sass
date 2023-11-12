@@ -4,23 +4,28 @@
 @import 'modal'
 
 .main
-    .container
-        padding-top: 30px
+    text-align: center
+    .wrap
         gap: 20px 1.3%
+        margin-bottom: 20px
         @media screen and ( max-width: 922px )
             gap: 20px 2%
         @media screen and ( max-width: 700px )
             gap: 15px 0
             justify-content: space-between
 
+        &.hidden
+            display: none
+
 .card
     width: 24%
     border: 5px solid #eee
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .2)
     cursor: pointer
-    img 
+    img
         display: block
         width: 100%
+        object-fit: cover
         aspect-ratio: 1/1
     &-modal
         display: none
@@ -30,8 +35,24 @@
         align-items: center
         gap: 10px
         padding: 20px
-        a 
+        a
             width: 20%
+
+        &::before
+            content: '✖'
+            pointer-events: none
+            position: absolute
+            top: 12px
+            right: 15px
+            border-radius: 50%
+            text-align: center
+            font-size: 18px
+            background-color: rgba(#000, .2)
+            color: #fff
+            width: 36px
+            height: 36px
+            line-height: 38px
+            z-index: 999
 
     @media screen and ( max-width: 922px )
         width: 32%
@@ -40,7 +61,7 @@
 
 .bann
     display: block
-    padding: 60px 0
+    padding: 0 0 20px
     img
         display: block
         width: 100%

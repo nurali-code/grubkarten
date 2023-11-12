@@ -1,7 +1,7 @@
 header
     position: relative
     z-index: 1
-    padding: 20px 0
+    padding: 20px 0 12px
     .logo
         display: block
         max-width: 150px
@@ -61,26 +61,27 @@ header
                     visibility: visible
                     transform: translateY(0px)
 
+            &.left
+                ul
+                    right: auto
+                    left: -10px
+
         &:first-child
             ul
                 right: auto
                 left: -10px
 
-        @media screen and ( max-width: 520px )
-            &:nth-child(4)
-                ul
-                    right: auto
-                    left: -10px
-
 footer
     background-color: #403830
-    padding: 25px 0
+    padding: 15px 5px
     margin-top: auto
+    .container
+        padding: 0
     nav
         a
             display: inline-block
-            padding: 15px
-            font-size: 16px
+            padding: 15px 10px
+            font-size: 14px
             line-height: 100%
             &:first-child
                 // padding-left: 0
