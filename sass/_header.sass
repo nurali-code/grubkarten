@@ -7,7 +7,6 @@ header
         max-width: 100%
         margin: 0 0 20px
 
-
     ul, ol
         list-style: none
 
@@ -37,35 +36,40 @@ header
             opacity: 0
             visibility: hidden
             transition: .2s all ease
-            li 
+            li
                 margin-bottom: 12px
             .btn
-                min-width: 100px 
+                min-width: 100px
                 padding-left: 15px
                 padding-right: 15px
                 white-space: nowrap
 
-        &:hover
-            z-index: 99999
-            &::after
-                // border-color: #fff
-            ul
-                opacity: 1
-                visibility: visible
-                transform: translateY(0px)
+        @media screen and ( min-width: 992px )
+            &:hover
+                z-index: 99999
+                ul
+                    opacity: 1
+                    visibility: visible
+                    transform: translateY(0px)
+
+        @media screen and ( max-width: 990px )
+            &.active
+                z-index: 99999
+                ul
+                    opacity: 1
+                    visibility: visible
+                    transform: translateY(0px)
 
         &:first-child
-            ul 
-                right: auto 
+            ul
+                right: auto
                 left: -10px
 
         @media screen and ( max-width: 520px )
             &:nth-child(4)
-                ul 
-                    right: auto 
+                ul
+                    right: auto
                     left: -10px
-
-            
 
 footer
     background-color: #403830

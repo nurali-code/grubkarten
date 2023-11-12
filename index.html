@@ -10,7 +10,7 @@
     <meta name="keywords" content="Meta keywords">
 
     <link rel="stylesheet" href="./fonts/stylesheet.css">
-    <link rel="stylesheet" href="./css/style.css?ver=345">
+    <link rel="stylesheet" href="./css/style.css?ver=456">
 </head>
 
 <body>
@@ -482,6 +482,13 @@
                 }
             });
         });
+
+        document.querySelectorAll('.dropdown').forEach(function (button) {
+            button.addEventListener('click', function () {
+                this.classList.toggle('active');
+            });
+        });
+        
     </script>
 </body>
 
