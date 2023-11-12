@@ -10,7 +10,7 @@
     <meta name="keywords" content="Meta keywords">
 
     <link rel="stylesheet" href="./fonts/stylesheet.css">
-    <link rel="stylesheet" href="./css/style.css?ver=789">
+    <link rel="stylesheet" href="./css/style.css?ver=8910">
 </head>
 
 <body>
@@ -482,15 +482,19 @@
                 }
             });
         });
+        var dropdownAct = false;
 
         document.querySelectorAll('.dropdown').forEach(function (button) {
             button.addEventListener('click', function () {
                 this.classList.toggle('dropdown-show');
+                dropdownAct ? document.querySelector('.dropdown-show').classList.remove('dropdown-show') : false
+                dropdownAct = true;
             });
         });
 
         document.addEventListener('click', function (event) {
             if (!event.target.closest('.dropdown-show')) {
+                dropdownAct = false;
                 document.querySelector('.dropdown-show').classList.remove('dropdown-show');
             }
         });
