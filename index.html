@@ -10,7 +10,7 @@
     <meta name="keywords" content="Meta keywords">
 
     <link rel="stylesheet" href="./fonts/stylesheet.css">
-    <link rel="stylesheet" href="./css/style.css?ver=456">
+    <link rel="stylesheet" href="./css/style.css?ver=789">
 </head>
 
 <body>
@@ -485,10 +485,16 @@
 
         document.querySelectorAll('.dropdown').forEach(function (button) {
             button.addEventListener('click', function () {
-                this.classList.toggle('active');
+                this.classList.toggle('dropdown-show');
             });
         });
-        
+
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.dropdown-show')) {
+                document.querySelector('.dropdown-show').classList.remove('dropdown-show');
+            }
+        });
+
     </script>
 </body>
 
