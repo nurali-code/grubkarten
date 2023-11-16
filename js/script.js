@@ -15,8 +15,8 @@ $('.dropdown').on('click', function () {
 });
 
 function showModal(id) {
-    $(id).fadeIn(300);
-    $('body').addClass('active');
+    $(id).fadeIn(600);
+    // $('body').addClass('active');
 }
 
 $(document).on('click', function (e) {
@@ -50,7 +50,6 @@ $('.showHidden').on('click', function () {
 });
 
 $(document).on('click', '.card', function (e) {
-    console.log(this);
     var cardItems = $(this).parents('.wrap').find('.card-modal');
     var modal = document.getElementById('modal');
     $(modal).empty();
@@ -63,19 +62,21 @@ $(document).on('click', '.card', function (e) {
     $('.modal-content').slick({
         arrows: false,
         infinite: false,
-        speed: 600,
+        speed: 180,
         slidesToShow: 1,
         centerPadding: '0px',
         centerMode: true,
     });
     slickActive = true;
+    // $('.modal-content').slick('slidesToShow', 3);
     $('.modal-content').slick('slickGoTo', $(this).index());
+
     showModal($('#modalParent'));
 });
 
 function hideModals() {
     $('.modal').fadeOut();
-    $('body').removeClass('active');
+    // $('body').removeClass('active');
     $('.dropdown-show').removeClass('dropdown-show');
     slickActive ? $('.modal-content').slick('unslick') : false;
     $('.modal-content').empty();

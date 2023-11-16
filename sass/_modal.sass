@@ -21,7 +21,11 @@
         transform: translate(-50%, -50%)
         max-width: 540px
         color: #000
+        opacity: 0
+        animation: opacity .2s forwards
+        animation-delay: .3s
         text-align: left
+
         // background-color: #fff
         // overflow-y: scroll
         // border-radius: 14px
@@ -51,3 +55,9 @@
     &.active
         visibility: visible
         opacity: 1
+
+@keyframes opacity
+    0%
+        opacity: 0
+    100%
+        opacity: 100%
