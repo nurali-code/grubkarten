@@ -10,7 +10,7 @@
     <meta name="keywords" content="Meta keywords">
 
     <link rel="stylesheet" href="./fonts/stylesheet.css">
-    <link rel="stylesheet" href="./css/style.css?ver=131415">
+    <link rel="stylesheet" href="./css/style.css?ver=15161718">
 </head>
 
 <body>
@@ -48,12 +48,6 @@
                         <li><a href="#" class="btn">Danke</a></li>
                     </ul>
                 </li>
-                <li><a href="#" class="btn" data-tab="2">Liebe</a></li>
-                <li><a href="#" class="btn" data-tab="3">Sprüche</a></li>
-                <li><a href="#" class="btn" data-tab="2">Liebe</a></li>
-                <li><a href="#" class="btn" data-tab="3">Sprüche</a></li>
-                <li><a href="#" class="btn" data-tab="2">Liebe</a></li>
-                <li><a href="#" class="btn" data-tab="3">Sprüche</a></li>
                 <li><a href="#" class="btn" data-tab="2">Liebe</a></li>
                 <li><a href="#" class="btn" data-tab="3">Sprüche</a></li>
             </ul>
@@ -221,8 +215,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="wrap hidden">
                     <div class="card">
                         <img src="https://demo.ecardspage.info/img/img/normal/13.jpg" alt="img">
                         <div class="card-modal">
@@ -275,6 +267,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="wrap hidden">
                     <div class="card">
                         <img src="https://demo.ecardspage.info/img/img/normal/17.jpg" alt="img">
                         <div class="card-modal">
@@ -432,7 +426,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-outline" id="load">Заргузить</button>
+                <button class="btn-outline showHidden">show</button>
             </div>
             <div class="tab" data-tab-content="2">
                 <div class="wrap">
@@ -572,97 +566,14 @@
         </div>
     </footer>
 
-    <div class="modal" id="modal">
+    <div class="modal" id="modalParent">
+        <div class="modal-content" id="modal"></div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Получаем все элементы с классом "card"
-            var cards = document.querySelectorAll('.card');
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/slick.min.js"></script>
+    <script src="./js/script.js?ver=15161718"></script>
 
-            // Итерируем по каждой карте
-            cards.forEach(function (card) {
-                // Добавляем обработчик события клика для каждой карты
-                card.addEventListener('click', function () {
-                    // Клонируем элемент .card-modal внутри кликнутой карты
-                    var modalContent = card.querySelector('.card-modal').cloneNode(true);
-
-                    // Очищаем существующий контент в модальном окне
-                    var modal = document.getElementById('modal');
-                    modal.innerHTML = '';
-
-                    // Добавляем склонированный контент .card-modal в модальное окно
-                    modal.appendChild(modalContent);
-
-                    // Добавляем класс "active" модальному окну
-                    modal.classList.add('active');
-                });
-            });
-
-            // Получаем элемент модального окна
-            var modal = document.getElementById('modal');
-
-            // Добавляем обработчик события клика для модального окна
-            modal.addEventListener('click', function (event) {
-                // Проверяем, является ли кликнутый элемент потомком .card-modal
-                if (!event.target.closest('.card-share')) {
-                    // Убираем класс "active" из модального окна
-                    modal.classList.remove('active');
-                }
-            });
-        });
-
-        var dropdownAct = false;
-
-        document.querySelectorAll('.dropdown').forEach(function (button) {
-            button.addEventListener('click', function () {
-                var rect = this.getBoundingClientRect();
-                var xPosition = rect.left;
-
-                this.querySelector('ul').style.left = xPosition < 50 ? '-10px' : 'auto';
-
-                this.classList.toggle('dropdown-show');
-                dropdownAct ? document.querySelector('.dropdown-show').classList.remove('dropdown-show') : false
-                dropdownAct = true;
-            });
-        });
-
-        document.querySelector('#load').addEventListener('click', function (e) {
-            var cardHidden = document.querySelector('.hidden');
-            cardHidden ? cardHidden.classList.remove('hidden') : this.style.display = 'none';
-        });
-
-        document.addEventListener('click', function (event) {
-            if (!event.target.closest('.dropdown-show')) {
-                dropdownAct = false;
-                var dropdownShow = document.querySelector('.dropdown-show');
-                dropdownShow ? dropdownShow.classList.remove('dropdown-show') : false;
-            }
-        });
-
-        // Получаем все кнопки табов
-        var tabButtons = document.querySelectorAll('[data-tab]');
-
-        // Добавляем обработчик событий для каждой кнопки
-        tabButtons.forEach(function (button) {
-            button.addEventListener('click', function (el) {
-                el.preventDefault();
-                // Получаем значение атрибута data-tab из кнопки
-                var tabId = button.getAttribute('data-tab');
-
-                // Скрываем все табы
-                var tabs = document.querySelectorAll('.tab');
-                tabs.forEach(function (tab) {
-                    tab.classList.remove('active');
-                });
-
-                // Отображаем только активный таб
-                var activeTab = document.querySelector('.tab[data-tab-content="' + tabId + '"]');
-                activeTab.classList.add('active');
-            });
-        });
-
-    </script>
 </body>
 
 </html>

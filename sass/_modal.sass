@@ -8,12 +8,10 @@
     background-color: rgba(#000, 0.7)
     padding: 0
     box-sizing: border-box
-    visibility: hidden
-    opacity: 0
-    transition: all ease .3s
+    display: none
 
-    .card-modal
-        width: 90%
+    &-content
+        // width: 90%
         min-height: 100px
         max-height: 98%
         display: block
@@ -21,20 +19,20 @@
         top: 50%
         left: 50%
         transform: translate(-50%, -50%)
-        background-color: #fff
-        max-width: 500px
-        overflow-y: scroll
+        max-width: 540px
         color: #000
         text-align: left
-        border-radius: 14px
-        -ms-overflow-style: none
-        scrollbar-width: none
-        &::-webkit-scrollbar
-            display: none
-            width: 0
-            height: 0
+        // background-color: #fff
+        // overflow-y: scroll
+        // border-radius: 14px
+        // -ms-overflow-style: none
+        // scrollbar-width: none
+        // &::-webkit-scrollbar
+        //     display: none
+        //     width: 0
+        //     height: 0
 
-        img 
+        img
             display: block
             width: 100%
 

@@ -1,6 +1,7 @@
 @import 'normolize'
 @import 'elements'
 @import 'header'
+@import 'slick'
 @import 'modal'
 
 .main
@@ -28,9 +29,15 @@
         width: 100%
         object-fit: cover
         aspect-ratio: 1/1
-    
+
     &-modal
         display: none
+        margin: 0 20px
+        position: relative
+        background-color: #fff
+        border-radius: 14px
+        overflow: hidden
+        // max-width: 400px
 
     &-share
         display: flex
@@ -38,25 +45,26 @@
         justify-content: center
         gap: 10px
         padding: 30px 20px
+        margin: 10px 0
         a
             display: block
             width: 15%
 
-        &::before
-            content: '✖'
-            pointer-events: none
-            position: absolute
-            top: 12px
-            right: 15px
-            border-radius: 50%
-            text-align: center
-            font-size: 18px
-            background-color: rgba(#000, .2)
-            color: #fff
-            width: 36px
-            height: 36px
-            line-height: 38px
-            z-index: 999
+        // &::before
+        //     content: '✖'
+        //     pointer-events: none
+        //     position: absolute
+        //     top: 12px
+        //     right: 15px
+        //     border-radius: 50%
+        //     text-align: center
+        //     font-size: 18px
+        //     background-color: rgba(#000, .2)
+        //     color: #fff
+        //     width: 36px
+        //     height: 36px
+        //     line-height: 38px
+        //     z-index: 999
 
     @media screen and ( max-width: 922px )
         width: 32%
